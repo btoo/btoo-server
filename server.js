@@ -12,7 +12,8 @@ app.use(bodyParser.json());
 
 // allow requests from btoo.github.io
 app.use(function(req,res,next){
-	res.setHeader('Access-Control-Allow-Origin','https://btoo.github.io');
+	// res.setHeader('Access-Control-Allow-Origin','https://btoo.github.io');
+	res.setHeader('Access-Control-Allow-Origin','http://localhost:3000/');
 	next();
 });
 // app.all('/', function(req, res, next) {
