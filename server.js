@@ -11,11 +11,16 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
 
 // allow requests from btoo.github.io
-app.all('*', function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "https://btoo.github.io");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    next();
+app.use(function(req,res,next){
+	res.setHeader('Access-Control-Allow-Origin','https://btoo.github.io');
+	next();
 });
+// app.all('/', function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "https://btoo.github.io");
+//     res.header("Access-Control-Allow-Headers", "X-Requested-With");
+//     next();
+// });
+
 
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
 var db;
