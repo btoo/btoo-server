@@ -15,15 +15,16 @@ app.use(function(req,res,next){
 	// res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 	// res.setHeader('Access-Control-Allow-Origin','https://btoo.github.io');
 	res.setHeader('Access-Control-Allow-Origin','http://localhost:3000');
-	res.setHeader('Access-Control-Allow-Headers','Origin, X-Requested-With, Content-Type, Accept');
-	// res.setHeader('Content-Type','application/json');
+	// res.setHeader('Access-Control-Allow-Headers','Origin, X-Requested-With, Content-Type, Accept');
+	res.setHeader('Content-Type','application/json');
 	next();
 });
-// app.all('/', function(req, res, next) {
-//     res.header("Access-Control-Allow-Origin", "https://btoo.github.io");
-//     res.header("Access-Control-Allow-Headers", "X-Requested-With");
-//     next();
-// });
+app.all('/', function(req, res, next) {
+    // res.header("Access-Control-Allow-Origin", "https://btoo.github.io");
+    // res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 
 
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
