@@ -7,18 +7,25 @@ var ObjectID = mongodb.ObjectID;
 var CONTACTS_COLLECTION = "contacts";
 
 var app = express();
-app.use(express.static(__dirname + "/public"));
-app.use(bodyParser.json());
-
-// allow requests from btoo.github.io
-app.all('/', function(req, res, next) {
-    // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    // next();
-    res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+app.use(function(req,res,next){
+	// res.setHeader('Access-Control-Allow-Origin','https://btoo.github.io');
+	res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 	res.setHeader('Access-Control-Allow-Origin','http://localhost:3000');
 	res.setHeader('Content-Type','application/json');
 	next();
 });
+app.use(express.static(__dirname + "/public"));
+app.use(bodyParser.json());
+
+// allow requests from btoo.github.io
+// app.all('/', function(req, res, next) {
+//     // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     // next();
+//     res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+// 	res.setHeader('Access-Control-Allow-Origin','http://localhost:3000');
+// 	res.setHeader('Content-Type','application/json');
+// 	next();
+// });
 // app.use(function(req,res,next){
 // 	// res.setHeader('Access-Control-Allow-Origin','https://btoo.github.io');
 // 	res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
