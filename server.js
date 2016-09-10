@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 // allow requests from btoo.github.io
 app.all('/', function(req, res, next) {
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    req.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
 app.use(function(req,res,next){
