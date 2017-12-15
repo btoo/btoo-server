@@ -1,7 +1,9 @@
+const emoji = require('node-emoji')
+
 module.exports = (event, context, callback) => {
 
   console.log(
-    'woah logs!',
+    `woah logs! (using a node module ${emoji.get('ok_hand')})`,
     event, // js object passed into this fn as parameters
     context // context object gives you access to the aws lambda runtime
   )
