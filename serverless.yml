@@ -19,7 +19,7 @@ service: my-service
 
 provider:
   name: aws
-  runtime: nodejs6.10.3
+  runtime: nodejs6.10
 
 # you can overwrite defaults here
 #  stage: dev
@@ -53,7 +53,9 @@ provider:
 #  exclude:
 #    - exclude-me.js
 #    - exclude-me-dir/**
-
+package:
+  include:
+    - node_modules/serverless-http
 
 functions:
   hello:
@@ -62,7 +64,12 @@ functions:
     handler: handler.saySomething
     package:
       include:
-        - node_mobules/**
+        - node_modules/**
+  app:
+    handler: index.handler
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
 
 
 #    The following are a few example events you can configure

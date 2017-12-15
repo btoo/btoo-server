@@ -1,0 +1,12 @@
+{
+  "name": "btoo-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/btoo/btoo-server.git",
+  "author": "<feihcsim824@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.2",
+    "serverless-http": "^1.5.2"
+  }
+}
